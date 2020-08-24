@@ -16,11 +16,12 @@
 </head>
 <body>
     <h1 id="headingTotal"></h1>
-    <input  id="inputAmount" type="text">
-    <input  id="inputDesc" type="text">
+    <input  id="inputAmount" type="text" placeholder="Input Amount">
+    <input  id="inputDesc" type="text" placeholder="Input Description">
     <button id="btnAddExpense">+</button>
+    <div id=expenseTable></div>
     <script>
-        // get the heading element
+        // get ref of the heading element
         const headingEl = document.querySelector("#headingTotal");
     
         // get the reference to input element
@@ -28,7 +29,9 @@
         const inputElement = document.querySelector("#inputAmount");
         
         //  get the reference to desc element
-        const inputDescEl = document.querySelector("#inputDesc")
+        const inputDescEl = document.querySelector("#inputDesc");
+        // get the ref of table
+         const expenseTableEl = document.querySelector("#expenseTable");
         // take a number which start from 0
         // let counter = 0;
          
@@ -45,7 +48,7 @@
          let totalExpense = 0;    
 
          // set the heading element
-        //  headingEl.textContent = totalExpense;
+         headingEl.textContent = totalExpense;
 
         //   allExpenses at once place
         
@@ -81,11 +84,26 @@
 
             //  add that value to totalExpense
             totalExpense = totalExpense + expense;
-            console.log({totalExpense})
+             console.log({totalExpense})
             const someText = `Your monthly expense is : ${totalExpense}`;
-
             // set the heading elemnet
             headingEl.textContent = someText;
+
+            // show the table
+             const data1 = allExpenses[0];
+             const data2 = allExpenses[1]
+
+              const data1Text = `Amount : ${data1.amount} :: Description : ${data1.desc}`;
+              const data2Text = `Amount : ${data2.amount} :: Description : ${data1.desc}`;
+            
+             const tableText  = `
+                 <div>${data1Text}</div>
+                 <div>${data2Text}</div>
+             `
+            
+            
+
+            expenseTableEl.innerHTML = tableText;
         }
         // counterIncrement();
 
