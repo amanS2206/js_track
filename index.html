@@ -118,6 +118,21 @@
 			// Listening to click event
             element.addEventListener('click', addExpenseToTotal, false);
 
+            // Get Date String
+			function getDateString(momento) {
+				return momento.toLocaleDateString('en-US', {
+					year: 'numeric',
+					month: 'long',
+					day: 'numeric',
+				});
+			}
+
+            // Delete Items
+			function deleteItem(dateValue) {
+				const newArr = allExpenses.filter(expense => expense.moment.valueOf() !== dateValue);
+				renderList(newArr);
+			}
+
             function renderList(arrOfList) {
 				const allExpenseHTML = arrOfList.map(expense => createListItem(expense));
 				const joinedAllExpenseHTML = allExpenseHTML.join('');
