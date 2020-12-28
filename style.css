@@ -52,6 +52,7 @@
     background-repeat: no-repeat;
     background-position: right;
     background-size: 80px;
+    margin-bottom: 100px;
 }
 
 @media(max-width:990px){
